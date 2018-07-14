@@ -1,0 +1,15 @@
+#!/bin/sh
+
+cmd="sudo tunctl -u $(id -un) -t $1"
+echo ${cmd}
+eval ${cmd}
+cmd="sudo ifconfig $1 0.0.0.0 promisc up"
+echo ${cmd}
+eval ${cmd}
+cmd="sudo brctl addif virbr0 $1"
+echo ${cmd}
+eval ${cmd}
+cmd="brctl show"
+echo ${cmd}
+eval ${cmd}
+
