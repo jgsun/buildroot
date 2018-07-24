@@ -1,0 +1,13 @@
+#!/bin/sh
+run_cmd()
+{
+	echo $1
+	eval $1
+}
+run_cmd "sudo brctl delif br0 enp0s3"
+run_cmd "sudo ifconfig br0 down"
+run_cmd "sudo brctl delbr br0"
+run_cmd "sudo ifconfig enp0s3 10.0.2.16 up"
+run_cmd "brctl show"
+run_cmd "sudo route add default gw 10.0.2.2"
+run_cmd "ip route"
