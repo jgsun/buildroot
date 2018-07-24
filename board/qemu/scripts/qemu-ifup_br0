@@ -1,0 +1,19 @@
+#!/bin/sh
+run_cmd()
+{
+	echo $1
+	eval $1
+}
+run_cmd "sudo ifconfig"
+run_cmd "sudo brctl addbr br0"
+run_cmd "sudo ifconfig br0 10.0.2.16 up"
+run_cmd "sudo ip route"
+run_cmd "sudo ip addr del 10.0.2.16/24 dev enp0s3"  # del ip on enp0s3
+run_cmd "sudo ip route"
+run_cmd "sudo brctl addif br0 enp0s3"
+run_cmd "sudo route add default gw 10.0.2.2"
+run_cmd "sudo ip route"
+run_cmd "sudo tunctl -u $(id -un) -t $1"
+run_cmd "sudo ifconfig $1 0.0.0.0 promisc up"
+run_cmd "sudo brctl addif br0 $1"
+run_cmd "brctl show"

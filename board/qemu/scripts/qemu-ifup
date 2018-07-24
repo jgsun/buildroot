@@ -1,0 +1,10 @@
+#!/bin/sh
+run_cmd()
+{
+	echo $1
+	eval $1
+}
+run_cmd "sudo tunctl -u $(id -un) -t $1"
+run_cmd "sudo ifconfig $1 0.0.0.0 promisc up"
+run_cmd "sudo brctl addif virbr0 $1"
+run_cmd "brctl show"
