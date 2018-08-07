@@ -7,12 +7,6 @@
 PATH=$PATH:/sbin:/usr/sbin
 ip=$(which ip)
 
-
-sudo tunctl -u $(id -un) -t $1
-
-
-
-
 if [ -n "$ip" ]; then
    ip link set "$1" up
 else
@@ -29,15 +23,6 @@ switch=$(ip route ls | \
           for(i=0;i<NF;i++) { if ($i == "dev") { print $(i+1); next; } }
          }'
         )
-
-echo "found switch=$switch"
-if [ -! "$switch" ]; then
-    brctl addbr br0
-    ifconfig br0 10.0.2.16 up
-    ip addr del 10.0.2.16/24 dev enp0s3 # del ip on enp0s3
-    brctl addif br0 enp0s3
-    route add default gw 10.0.2.2
-fi
 
 # only add the interface to default-route bridge if we
 # have such interface (with default route) and if that
