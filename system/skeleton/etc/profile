@@ -2,9 +2,9 @@ export PATH=/bin:/sbin:/usr/bin:/usr/sbin
 
 if [ "$PS1" ]; then
 	if [ "`id -u`" -eq 0 ]; then
-		export PS1='# '
+		export PS1='\u@\w# '
 	else
-		export PS1='$ '
+		export PS1='\u@\w$ '
 	fi
 fi
 
