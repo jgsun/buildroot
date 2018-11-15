@@ -2221,6 +2221,7 @@ endif
 	source "package/ifenslave/Config.in"
 	source "package/ifmetric/Config.in"
 	source "package/ifplugd/Config.in"
+	source "package/ifstat/Config.in"
 	source "package/iftop/Config.in"
 	source "package/ifupdown/Config.in"
 	source "package/ifupdown-scripts/Config.in"
