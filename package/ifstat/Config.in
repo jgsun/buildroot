@@ -1,0 +1,12 @@
+config BR2_PACKAGE_IFSTAT
+	bool "ifstat"
+	help
+	  ifstat is a tool to report network interface bandwith just
+	  like vmstat/iostat do for other system counters. It can monitor
+	  local interfaces by polling the kernel counters, or remote
+	  hosts' interfaces using SNMP.
+
+	  http://gael.roualland.free.fr/ifstat/
+	  http://freshmeat.sourceforge.net/projects/ifstat
+
+comment "ifstat is good for you"
