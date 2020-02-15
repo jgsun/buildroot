@@ -245,10 +245,25 @@ host-meson-package = $(call inner-meson-package,host-$(pkgname),$(call UPPERCASE
 # own flags if they need to.
 define PKG_MESON_INSTALL_CROSS_CONF
 	mkdir -p $(HOST_DIR)/etc/meson
+<<<<<<< HEAD
 	sed -e "s%@TARGET_CFLAGS@%$(call make-sq-comma-list,$(TARGET_CFLAGS))@PKG_TARGET_CFLAGS@%g" \
 	    -e "s%@TARGET_LDFLAGS@%$(call make-sq-comma-list,$(TARGET_LDFLAGS))@PKG_TARGET_LDFLAGS@%g" \
 	    -e "s%@TARGET_CXXFLAGS@%$(call make-sq-comma-list,$(TARGET_CXXFLAGS))@PKG_TARGET_CXXFLAGS@%g" \
 	    $(call PKG_MESON_CROSSCONFIG_SED) \
+=======
+	sed -e 's%@TARGET_CROSS@%$(TARGET_CROSS)%g' \
+	    -e 's%@TARGET_ARCH@%$(HOST_MESON_TARGET_CPU_FAMILY)%g' \
+	    -e 's%@TARGET_CPU@%$(HOST_MESON_TARGET_CPU)%g' \
+	    -e 's%@TARGET_ENDIAN@%$(HOST_MESON_TARGET_ENDIAN)%g' \
+	    -e "s%@TARGET_CFLAGS@%$(call make-sq-comma-list,$(TARGET_CFLAGS))@PKG_TARGET_CFLAGS@%g" \
+	    -e "s%@TARGET_LDFLAGS@%$(call make-sq-comma-list,$(TARGET_LDFLAGS))@PKG_TARGET_CFLAGS@%g" \
+	    -e "s%@TARGET_CXXFLAGS@%$(call make-sq-comma-list,$(TARGET_CXXFLAGS))@PKG_TARGET_CFLAGS@%g" \
+	    -e 's%@HOST_DIR@%$(HOST_DIR)%g' \
+	    -e 's%@STAGING_DIR@%$(STAGING_DIR)%g' \
+	    -e 's%@STATIC@%$(if $(BR2_STATIC_LIBS),true,false)%g' \
+	    -e 's%@STATIC@%$$(if $$(BR2_STATIC_LIBS),true,false)%g' \
+	    $(HOST_MESON_PKGDIR)/cross-compilation.conf.in \
+>>>>>>> package/meson: make pkg-config --static aware
 	    > $(HOST_DIR)/etc/meson/cross-compilation.conf.in
 	sed $(call PKG_MESON_CROSSCONFIG_SED,TARGET_CFLAGS,TARGET_CXXFLAGS,TARGET_LDFLAGS) \
 	    > $(HOST_DIR)/etc/meson/cross-compilation.conf
