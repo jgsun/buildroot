@@ -397,7 +397,15 @@ config BR2_DEFAULT_KERNEL_HEADERS
 	default "4.19.182"	if BR2_KERNEL_HEADERS_4_19
 	default "5.4.107"	if BR2_KERNEL_HEADERS_5_4
 	default "5.10.25"	if BR2_KERNEL_HEADERS_5_10
+<<<<<<< HEAD
 >>>>>>> {linux, linux-headers}: bump 5.{4, 10, 11}.x 4.{4, 9, 14, 19} series
+=======
+	default "4.4.218"	if BR2_KERNEL_HEADERS_4_4
+	default "4.9.218"	if BR2_KERNEL_HEADERS_4_9
+	default "4.14.175"	if BR2_KERNEL_HEADERS_4_14
+	default "4.19.114"	if BR2_KERNEL_HEADERS_4_19
+	default "5.4.30"	if BR2_KERNEL_HEADERS_5_4
+>>>>>>> {linux, linux-headers}: bump 4.{4, 9, 14, 19}.x / 5.{4, 5, 6}.x series
 	default BR2_DEFAULT_KERNEL_VERSION if BR2_KERNEL_HEADERS_VERSION
 	default "custom"	if BR2_KERNEL_HEADERS_CUSTOM_TARBALL
 	default BR2_KERNEL_HEADERS_CUSTOM_REPO_VERSION \
