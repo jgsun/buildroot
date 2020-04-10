@@ -100,7 +100,13 @@ BR2_VERSION_EPOCH = 1655633000
 export BR2_VERSION := 2021.02.1
 # Actual time the release is cut (for reproducible builds)
 BR2_VERSION_EPOCH = 1617790000
+<<<<<<< HEAD
 >>>>>>> Update for 2021.02.1
+=======
+export BR2_VERSION := 2020.02.1
+# Actual time the release is cut (for reproducible builds)
+BR2_VERSION_EPOCH = 1586551000
+>>>>>>> Update for 2020.02.1
 
 # Save running make version since it's clobbered by the make package
 RUNNING_MAKE_VERSION := $(MAKE_VERSION)
