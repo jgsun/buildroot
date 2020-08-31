@@ -1,0 +1,64 @@
+#!/bin/sh
+#
+# $Id: dhcp3-server.init.d,v 1.4 2003/07/13 19:12:41 mdz Exp $
+#
+
+# On what interfaces should the DHCP server (dhcpd) serve DHCP requests?
+#       Separate multiple interfaces with spaces, e.g. "eth0 eth1".
+INTERFACES="veth2"
+
+# Additional options that are passed to the DHCP server daemon?
+OPTIONS=""
+
+NAME="dhclient"
+DAEMON="/sbin/${NAME}"
+CFG_FILE="/etc/default/${NAME}"
+
+# Read configuration variable file if it is present
+[ -r "${CFG_FILE}" ] && . "${CFG_FILE}"
+
+# Sanity checks
+test -f /sbin/dhclient || exit 0
+if [ "$2" = "c1" ]; then
+        INTERFACES="c1_veth"
+#        cp -rf /root/dhcp/lt1_dhclient.conf /etc/dhcp/dhclient.conf
+        echo $INTERFACES
+fi
+if [ "$2" = "c2" ]; then
+        INTERFACES="c2_veth"
+        echo $INTERFACES
+#        cp -rf /root/dhcp/lt2_dhclient.conf /etc/dhcp/dhclient.conf
+#       OPTIONS="-cf /etc/dhcp/lt2_dhclient.conf"
+fi
+
+cp -rf /root/dhcp/dhclient.conf /etc/dhcp/dhclient.conf
+OPTIONS="-cf /etc/dhcp/dhclient.conf"
+cp -rf /root/dhcp/dhclient-script /sbin/
+test -f /etc/dhcp/dhclient.conf || exit 0
+
+case "$1" in
+        start)
+                printf "Starting DHCP client: "
+                test -d /var/lib/dhcp/ || mkdir -p /var/lib/dhcp/
+                test -f /var/lib/dhcp/dhclient.leases || touch /var/lib/dhcp/dhclient.leases
+                start-stop-daemon -S -q -x ${DAEMON} -- -q $OPTIONS $INTERFACES
+                [ $? = 0 ] && echo "OK" || echo "FAIL"
+                ;;
+        stop)
+                printf "Stopping DHCP server: "
+                start-stop-daemon -K -q -x ${DAEMON}
+                [ $? = 0 ] && echo "OK" || echo "FAIL"
+                ;;
+        restart | force-reload)
+                $0 stop
+                $0 start
+                if [ "$?" != "0" ]; then
+                        exit 1
+                fi
+                ;;
+        *)
+                echo "Usage: $0 {start|stop|restart|force-reload}"
+                exit 1
+esac
+
+exit 0
