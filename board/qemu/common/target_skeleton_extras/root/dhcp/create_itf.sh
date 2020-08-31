@@ -44,11 +44,12 @@ ip netns exec r_ns route add -net 10.254.236.0 netmask 255.255.255.0 dev r_veth
 ip netns exec r_ns route add -net 10.254.236.0 netmask 255.255.255.0 gw 10.254.236.1 dev r_veth
 
 # ip netns exec c1_ns ip addr add 10.254.239.41/24 dev c1_veth
-ip netns exec c1_ns route add -net 10.254.236.0 netmask 255.255.255.0 dev c1_veth
-ip netns exec c1_ns route add -net 10.254.236.0 netmask 255.255.255.0 gw 10.254.236.1 dev c1_veth
+# ip netns exec c1_ns route add -net 10.254.236.0 netmask 255.255.255.0 dev c1_veth
+# ip netns exec c1_ns route add -net 10.254.236.0 netmask 255.255.255.0 gw 10.254.236.1 dev c1_veth
 
-ip netns exec c2_ns route add -net 10.254.236.0 netmask 255.255.255.0 dev c2_veth
-ip netns exec c2_ns route add -net 10.254.236.0 netmask 255.255.255.0 gw 10.254.236.1 dev c2_veth
+# ip netns exec c2_ns ip addr add 10.254.239.42/24 dev c2_veth
+# ip netns exec c2_ns route add -net 10.254.236.0 netmask 255.255.255.0 dev c2_veth
+# ip netns exec c2_ns route add -net 10.254.236.0 netmask 255.255.255.0 gw 10.254.236.1 dev c2_veth
 
 ip netns exec s_ns /root/dhcp/S80dhcp-server start
 ip netns exec r_ns /root/dhcp/S80dhcp-relay start
