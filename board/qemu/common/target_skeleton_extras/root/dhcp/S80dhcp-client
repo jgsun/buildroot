@@ -18,22 +18,23 @@ CFG_FILE="/etc/default/${NAME}"
 [ -r "${CFG_FILE}" ] && . "${CFG_FILE}"
 
 # Sanity checks
+
 test -f /sbin/dhclient || exit 0
 if [ "$2" = "c1" ]; then
         INTERFACES="c1_veth"
-#        cp -rf /root/dhcp/lt1_dhclient.conf /etc/dhcp/dhclient.conf
-        echo $INTERFACES
-fi
-if [ "$2" = "c2" ]; then
-        INTERFACES="c2_veth"
-        echo $INTERFACES
-#        cp -rf /root/dhcp/lt2_dhclient.conf /etc/dhcp/dhclient.conf
-#       OPTIONS="-cf /etc/dhcp/lt2_dhclient.conf"
+        OPTIONS="-cf /root/dhcp/dhclient-c1.conf"
 fi
 
-cp -rf /root/dhcp/dhclient.conf /etc/dhcp/dhclient.conf
-OPTIONS="-cf /etc/dhcp/dhclient.conf"
-cp -rf /root/dhcp/dhclient-script /sbin/
+if [ "$2" = "c2" ]; then
+        INTERFACES="c2_veth"
+        OPTIONS="-cf /root/dhcp/dhclient-c2.conf"
+fi
+
+OPTIONS=$OPTIONS "-sf /root/dhcp/dhclient-script"
+
+echo INTERFACES=$INTERFACES
+echo OPTIONS=$OPTIONS
+
 test -f /etc/dhcp/dhclient.conf || exit 0
 
 case "$1" in

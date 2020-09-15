@@ -8,7 +8,7 @@
 INTERFACES="s_veth"
 
 # Additional options that are passed to the DHCP server daemon?
-OPTIONS=""
+OPTIONS="-cf /root/dhcp/dhcpd.conf"
 
 NAME="dhcpd"
 DAEMON="/usr/sbin/${NAME}"
@@ -19,8 +19,10 @@ CFG_FILE="/etc/default/${NAME}"
 
 # Sanity checks
 test -f /usr/sbin/dhcpd || exit 0
-cp -rf /root/dhcp/dhcpd.conf /etc/dhcp/dhcpd.conf
 test -f /etc/dhcp/dhcpd.conf || exit 0
+
+echo INTERFACES=$INTERFACES
+echo OPTIONS=$OPTIONS
 
 case "$1" in
         start)
