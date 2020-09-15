@@ -5,7 +5,7 @@
 
 # On what interfaces should the DHCP server (dhcpd) serve DHCP requests?
 #       Separate multiple interfaces with spaces, e.g. "eth0 eth1".
-INTERFACES="br0"
+INTERFACES="r_veth"
 SERVER="10.254.236.2"
 # Additional options that are passed to the DHCP server daemon?
 OPTIONS=""
@@ -18,16 +18,16 @@ CFG_FILE="/etc/default/${NAME}"
 [ -r "${CFG_FILE}" ] && . "${CFG_FILE}"
 
 # Sanity checks
-# test -f /usr/sbin/dhcpd || exit 0
-# cp -rf /mnt/emmc-persistent/dhcp/dhcpd.conf /etc/dhcp/dhcpd.conf
-# test -f /etc/dhcp/dhcpd.conf || exit 0
+test -f /usr/sbin/dhcrelay || exit 0
+
+echo INTERFACES=$INTERFACES
+echo OPTIONS=$OPTIONS
 
 case "$1" in
         start)
-                printf "Starting DHCP server: "
+                printf "Starting DHCP relay: "
                 test -d /var/lib/dhcp/ || mkdir -p /var/lib/dhcp/
-#               test -f /var/lib/dhcp/dhcpd.leases || touch /var/lib/dhcp/dhcpd.leases
-                start-stop-daemon -S -q -x ${DAEMON} -- -q $OPTIONS -i r_veth $SERVER
+                start-stop-daemon -S -q -x ${DAEMON} -- -q -a $OPTIONS -i $INTERFACES $SERVER
                 [ $? = 0 ] && echo "OK" || echo "FAIL"
                 ;;
         stop)
