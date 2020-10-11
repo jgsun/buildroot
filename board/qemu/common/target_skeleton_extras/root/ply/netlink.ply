@@ -1,0 +1,6 @@
+#!/usr/bin/env ply
+
+kprobe:rtnetlink_rcv
+{
+	    print(stack);
+}

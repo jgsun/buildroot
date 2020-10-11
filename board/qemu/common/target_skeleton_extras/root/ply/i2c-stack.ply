@@ -1,0 +1,6 @@
+#!/usr/bin/env ply
+
+kprobe:i2c_transfer
+{
+	    print(stack);
+}
