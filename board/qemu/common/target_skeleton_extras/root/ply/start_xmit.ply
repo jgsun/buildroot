@@ -1,0 +1,6 @@
+#!/usr/bin/env ply
+
+kprobe:start_xmit
+{
+	    print(stack);
+}

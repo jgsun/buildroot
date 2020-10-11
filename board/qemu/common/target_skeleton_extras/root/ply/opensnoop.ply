@@ -1,0 +1,7 @@
+#!/usr/bin/env ply
+
+kprobe:do_sys_open
+{
+	    printf("%v(%v): %s\n",
+			               comm, pid, str(arg1));
+}
