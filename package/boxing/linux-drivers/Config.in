@@ -1,0 +1,15 @@
+config BR2_PACKAGE_LINUX_DRIVERS
+	bool "linux-drivers"
+	help
+	  Linux kernel drivers.
+
+if BR2_PACKAGE_LINUX_DRIVERS
+
+config BR2_PACKAGE_LINUX_DRIVERS_TEST_DRIVERS
+	bool "Build test drivers"
+	help
+	  In addition to standard target drivers, build a number of drivers
+	  that can help in testing particular scenarios.
+	  This option should not be enabled in target defconfigs.
+
+endif
