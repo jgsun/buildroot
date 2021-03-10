@@ -50,14 +50,22 @@ _plain_svn() {
     eval ${SVN} "${@}"
 }
 
+<<<<<<< HEAD
 _svn export --ignore-keywords ${quiet} "${@}" "'${uri}@${rev}'" "'${basename}'"
+=======
+_svn export --ignore-keywords ${verbose} "${@}" "'${uri}@${rev}'" "'${basename}'"
+>>>>>>> support/download: make the svn backend more reproducible
 
 # Get the date of the revision, to generate reproducible archives.
 # The output format is YYYY-MM-DDTHH:MM:SS.mmmuuuZ (i.e. always in the
 # UTC timezone), which we can feed as-is to the --mtime option for tar.
 # In case there is a redirection (e.g. http -> https), just keep the
 # last line (svn outputs everything on stdout)
+<<<<<<< HEAD
 date="$( _plain_svn info "'${uri}@${rev}'" \
+=======
+date="$( _svn info "'${uri}@${rev}'" \
+>>>>>>> support/download: make the svn backend more reproducible
         |sed -r -e '/^Last Changed Date: /!d; s///'
        )"
 
