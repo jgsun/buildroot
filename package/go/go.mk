@@ -5,10 +5,14 @@
 ################################################################################
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 GO_VERSION = 1.17.11
 =======
 GO_VERSION = 1.15.10
 >>>>>>> package/go: security bump to version 1.5.10
+=======
+GO_VERSION = 1.15.11
+>>>>>>> package/go: bump version to 1.15.11
 GO_SITE = https://storage.googleapis.com/golang
 GO_SOURCE = go$(GO_VERSION).src.tar.gz
 
