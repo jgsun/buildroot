@@ -81,6 +81,7 @@ endef
 
 MENDER_POST_INSTALL_TARGET_HOOKS += MENDER_INSTALL_CONFIG_FILES
 
+<<<<<<< HEAD
 ifeq ($(BR2_PACKAGE_XZ),y)
 MENDER_DEPENDENCIES += xz
 else
@@ -101,6 +102,8 @@ else
 MENDER_TAGS += nodbus
 endif
 
+=======
+>>>>>>> Revert "package/mender: install dbus authentication file if dbus is selected"
 define MENDER_INSTALL_INIT_SYSTEMD
 	$(INSTALL) -D -m 0644 $(MENDER_PKGDIR)/mender-client.service \
 		$(TARGET_DIR)/usr/lib/systemd/system/mender-client.service
