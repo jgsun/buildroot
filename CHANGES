@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 2022.02.3, released June 19th, 2022
 
 	Important / security related fixes.
@@ -1207,6 +1208,8 @@
 	#13751: libopenssl (static): huge drop in performance in newer ..
 	#13771: package htop has undeclared dependency on host python
 
+=======
+>>>>>>> Update for 2021.02.1
 2021.02.1, released April 7, 2021
 
 	Important / security related fixes.
@@ -1236,6 +1239,7 @@
 	Defconfigs: Correct Beaglebone QT file system overlay
 
 	Updated/fixed packages: alsa-utils, at91bootstrap3,
+<<<<<<< HEAD
 	batman-adv, binutils, botan, bridge-utils, busybox,
 	ca-certificates, cog, coreutils, diffutils, dmidecode,
 	docker-cli, docker-containerd, docker-engine, efivar,
@@ -1243,6 +1247,15 @@
 	gst1-devtools, gst1-libav, gst1-plugins-bad,
 	gst1-plugins-base, gst1-plugins-good, gst1-plugins-ugly,
 	gst1-python, gst1-rtsp-server, gst1-vaapi, gstreamer1,
+=======
+	batman-adv, binutils, botan, bridge-utils, ca-certificates,
+	cog, coreutils, diffutils, dmidecode, docker-cli,
+	docker-containerd, docker-engine, efivar, fetchmail, frr,
+	genimage, git, gnutls, go, grub2, gst-omx, gst1-devtools,
+	gst1-libav, gst1-plugins-bad, gst1-plugins-base,
+	gst1-plugins-good, gst1-plugins-ugly, gst1-python,
+	gst1-rtsp-server, gst1-vaapi, gstreamer1,
+>>>>>>> Update for 2021.02.1
 	gstreamer1-editing-services, haproxy, haserl, hwloc,
 	irqbalance, jasper, kexec, kexec-lite, kismet, kodi, libcurl,
 	libfreeglut, libgcrypt, libgeos, libglib2, libopenssl, libqmi,
@@ -1251,9 +1264,15 @@
 	mcelog, mender, micropython, mongoose, mosquitto, mpd,
 	netsnmp, nodejs, openmpi, openssh, openvpn, opkg-utils,
 	optee-client, optee-test, perl, php, proftpd, protobuf,
+<<<<<<< HEAD
 	python-django, python-jinja2, python-lxml, python-paramiko,
 	python-py, python-pygments, python-rpi-ws281x, python-urllib3,
 	python3, qt5webkit, qwt, rpm, samba4, sconeserver, sdl2, shim,
+=======
+	python-jinja2, python-lxml, python-paramiko, python-py,
+	python-pygments, python-rpi-ws281x, python-urllib3, python3,
+	qt5webkit, qwt, rpm, samba4, sconeserver, sdl2, shim,
+>>>>>>> Update for 2021.02.1
 	sqlcipher, squid, sysklogd, syslinux, sysvinit, tor,
 	transmission, tzdata, uboot, uclibc, upx, webkitgtk,
 	wireshark, wpebackend-fdo, wpewebkit, xen, zstd
