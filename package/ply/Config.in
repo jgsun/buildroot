@@ -25,14 +25,3 @@ config BR2_PACKAGE_PLY
 	  systems.
 
 	  When using debugfs needs to be mounted on /sys/kernel/debug.
-config BR2_PACKAGE_PLY
-	bool "ply"
-	depends on BR2_x86_64 || BR2_aarch64 || BR2_arm || BR2_ppc # needs <cpuid.h>
-	depends on BR2_TOOLCHAIN_USES_UCLIBC || BR2_TOOLCHAIN_USES_GLIBC
-	help
-	  ply dynamically instruments the running kernel to aggregate and
-	  extract user-defined data. It compiles an input program to one or
-	  more Linux bpf(2) binaries and attaches them to arbitrary points
-	  in the kernel using kprobes and tracepoints.
-
-	  https://wkz.github.io/ply/

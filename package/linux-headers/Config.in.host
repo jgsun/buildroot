@@ -398,6 +398,7 @@ config BR2_DEFAULT_KERNEL_HEADERS
 	default "5.4.107"	if BR2_KERNEL_HEADERS_5_4
 	default "5.10.25"	if BR2_KERNEL_HEADERS_5_10
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> {linux, linux-headers}: bump 5.{4, 10, 11}.x 4.{4, 9, 14, 19} series
 =======
 	default "4.4.218"	if BR2_KERNEL_HEADERS_4_4
@@ -410,6 +411,8 @@ config BR2_DEFAULT_KERNEL_HEADERS
 =======
 	default "5.4.31"	if BR2_KERNEL_HEADERS_5_4
 >>>>>>> {linux, linux-headers}: bump 5.{4, 5, 6}.x series
+=======
+>>>>>>> rebase to 2021.02.x
 	default BR2_DEFAULT_KERNEL_VERSION if BR2_KERNEL_HEADERS_VERSION
 	default "custom"	if BR2_KERNEL_HEADERS_CUSTOM_TARBALL
 	default BR2_KERNEL_HEADERS_CUSTOM_REPO_VERSION \
