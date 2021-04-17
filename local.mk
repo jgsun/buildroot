@@ -1,2 +1,2 @@
-LINUX_OVERRIDE_SRCDIR = /home/jgsun/repo/linux
-UBOOT_OVERRIDE_SRCDIR = /home/jgsun/repo/u-boot
+LINUX_OVERRIDE_SRCDIR = /repo/jiangusu/open-source/linux
+UBOOT_OVERRIDE_SRCDIR = /repo/jiangusu/open-source/uboot
