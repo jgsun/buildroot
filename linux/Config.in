@@ -28,16 +28,12 @@ choice
 	prompt "Kernel version"
 
 config BR2_LINUX_KERNEL_LATEST_VERSION
-	bool "Latest version (5.15)"
-	select BR2_TOOLCHAIN_HEADERS_AT_LEAST_5_15 if BR2_KERNEL_HEADERS_AS_KERNEL
+	bool "Latest version (5.17)"
+	select BR2_TOOLCHAIN_HEADERS_AT_LEAST_5_17 if BR2_KERNEL_HEADERS_AS_KERNEL
 
 config BR2_LINUX_KERNEL_LATEST_CIP_VERSION
-<<<<<<< HEAD
 	bool "Latest CIP SLTS version (5.10.115-cip7)"
 	select BR2_TOOLCHAIN_HEADERS_AT_LEAST_5_10 if BR2_KERNEL_HEADERS_AS_KERNEL
-=======
-	bool "Latest CIP SLTS version (4.19.182-cip45)"
->>>>>>> linux: bump CIP kernel 4.19 series
 	help
 	  CIP launched in the spring of 2016 to address the needs of
 	  organizations in industries such as power generation and
@@ -56,12 +52,8 @@ config BR2_LINUX_KERNEL_LATEST_CIP_VERSION
 	  https://www.cip-project.org
 
 config BR2_LINUX_KERNEL_LATEST_CIP_RT_VERSION
-<<<<<<< HEAD
 	bool "Latest CIP RT SLTS version (5.10.109-cip5-rt4)"
 	select BR2_TOOLCHAIN_HEADERS_AT_LEAST_5_10 if BR2_KERNEL_HEADERS_AS_KERNEL
-=======
-	bool "Latest CIP RT SLTS version (4.19.165-cip41-rt18)"
->>>>>>> linux: bump CIP kernel 4.19 series
 	help
 	  Same as the CIP version, but this is the PREEMPT_RT realtime
 	  variant.
@@ -136,33 +128,9 @@ endif
 
 config BR2_LINUX_KERNEL_VERSION
 	string
-<<<<<<< HEAD
-<<<<<<< HEAD
-	default "5.15.45" if BR2_LINUX_KERNEL_LATEST_VERSION
+	default "5.17.15" if BR2_LINUX_KERNEL_LATEST_VERSION
 	default "5.10.115-cip7" if BR2_LINUX_KERNEL_LATEST_CIP_VERSION
 	default "5.10.109-cip5-rt4" if BR2_LINUX_KERNEL_LATEST_CIP_RT_VERSION
-=======
-	default "5.10.25" if BR2_LINUX_KERNEL_LATEST_VERSION
-<<<<<<< HEAD
-	default "4.19.152-cip37" if BR2_LINUX_KERNEL_LATEST_CIP_VERSION
-	default "4.19.152-cip37-rt16" if BR2_LINUX_KERNEL_LATEST_CIP_RT_VERSION
->>>>>>> {linux, linux-headers}: bump 5.{4, 10, 11}.x 4.{4, 9, 14, 19} series
-=======
-	default "4.19.182-cip45" if BR2_LINUX_KERNEL_LATEST_CIP_VERSION
-	default "4.19.165-cip41-rt18" if BR2_LINUX_KERNEL_LATEST_CIP_RT_VERSION
-<<<<<<< HEAD
->>>>>>> linux: bump CIP kernel 4.19 series
-=======
-	default "5.4.30" if BR2_LINUX_KERNEL_LATEST_VERSION
-	default "5.4.31" if BR2_LINUX_KERNEL_LATEST_VERSION
-	default "4.19.98-cip19" if BR2_LINUX_KERNEL_LATEST_CIP_VERSION
-	default "4.19.98-cip19-rt7" if BR2_LINUX_KERNEL_LATEST_CIP_RT_VERSION
->>>>>>> {linux, linux-headers}: bump 4.{4, 9, 14, 19}.x / 5.{4, 5, 6}.x series
-=======
-	default "4.19.182-cip45" if BR2_LINUX_KERNEL_LATEST_CIP_VERSION
-	default "4.19.165-cip41-rt18" if BR2_LINUX_KERNEL_LATEST_CIP_RT_VERSION
-	default "5.4.31" if BR2_LINUX_KERNEL_LATEST_VERSION
->>>>>>> rebase to 2021.02.x
 	default BR2_LINUX_KERNEL_CUSTOM_VERSION_VALUE \
 		if BR2_LINUX_KERNEL_CUSTOM_VERSION
 	default "custom" if BR2_LINUX_KERNEL_CUSTOM_TARBALL

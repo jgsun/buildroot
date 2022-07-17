@@ -25,3 +25,5 @@ config BR2_PACKAGE_PLY
 	  systems.
 
 	  When using debugfs needs to be mounted on /sys/kernel/debug.
+
+	  https://wkz.github.io/ply/
